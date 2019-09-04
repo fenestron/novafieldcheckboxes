@@ -33,6 +33,11 @@ class Checkboxes extends Field
         return $this->withMeta(['withoutTypeCasting' => true]);
     }
 
+    public function columnCount($columns = 2)
+    {
+        return $this->withMeta(['columnCount' => $columns]);
+    }
+
     /**
      * Determine if the array keys should be converted to numeric values.
      */

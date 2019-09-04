@@ -1,7 +1,7 @@
 <template>
     <default-field :field="field">
         <template slot="field">
-            <div class="w-full max-col-2">
+            <div class="w-full max-col-2" :style="{ columnCount: field.columnCount }">
                 <div
                     v-for="(label, option) in field.options"
                     :key="option"
@@ -76,17 +76,18 @@ export default {
 </script>
 
 <style>
-    .max-col-3 {
-        -moz-column-count: 3;
-        -webkit-column-count: 3;
-        column-count: 3;
-        white-space: nowrap;
-    }
-
     .max-col-2 {
         -moz-column-count: 2;
         -webkit-column-count: 2;
         column-count: 2;
         white-space: nowrap;
+    }
+
+    @media (max-width: 480px) {
+        .max-col-2 {
+            -moz-column-count: 1 !important;
+            -webkit-column-count: 1 !important;
+            column-count: 1 !important;
+        }
     }
 </style>
